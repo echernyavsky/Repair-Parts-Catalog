@@ -43,10 +43,44 @@ namespace RepairPartsCatalog.Web
             // Add MVC services to the services container.
             services.AddMvc();
 
+            ConfigureSocialNetworksServices(services);
+
             // Uncomment the following line to add Web API servcies which makes it easier to port Web API 2 controllers.
             // You need to add Microsoft.AspNet.Mvc.WebApiCompatShim package to project.json
             // services.AddWebApiConventions();
 
+        }
+
+        private void ConfigureSocialNetworksServices(IServiceCollection services)
+        {
+            // TODO: all params to config!
+            // https://developers.facebook.com/apps/1428235794143782/dashboard/
+            services.ConfigureFacebookAuthentication(options =>
+            {
+                options.ClientId = "1428235794143782";
+                options.ClientSecret = "ae7fef315e5ab62ee17bd5ff47f85daf";
+            });
+
+            // https://console.developers.google.com/project/gromilich/apiui/credential?clientType#
+            services.ConfigureGoogleAuthentication(options =>
+            {
+                options.ClientId = "658509644882-tqcupomu1d3kq48922t4l0ne49a5jvo3.apps.googleusercontent.com";
+                options.ClientSecret = "TvlidK2X5YsGha3iiC-6gRkB";
+            });
+
+            // https://account.live.com/developers/applications/appsettings/000000004c14c58d
+            services.ConfigureMicrosoftAccountAuthentication(options =>
+            {
+                options.ClientId = "000000004C14C58D";
+                options.ClientSecret = "18t6DBWscDyaAnErLMJbfIi6HXjORL11";
+            });
+
+            // https://apps.twitter.com/app/8154774/keys
+            services.ConfigureTwitterAuthentication(options =>
+            {
+                options.ConsumerKey = "DsLCUQYcUBY5NQBsKO74Fogcy";
+                options.ConsumerSecret = "VWtTNYMc9gvCUC8osCwk5Em98xWTtBeW0sxrj3avcl9qhWeNVd";
+            });
         }
 
         // Configure is called after ConfigureServices is called.
@@ -76,6 +110,9 @@ namespace RepairPartsCatalog.Web
             // Add cookie-based authentication to the request pipeline.
             app.UseIdentity();
 
+            // Social networks authentication.
+            ConfigureSocialNetworks(app);
+
             // Add MVC to the request pipeline.
             app.UseMvc(routes =>
             {
@@ -87,6 +124,14 @@ namespace RepairPartsCatalog.Web
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");
             });
+        }
+
+        private void ConfigureSocialNetworks(IApplicationBuilder app)
+        {
+            app.UseGoogleAuthentication();
+            app.UseTwitterAuthentication();
+            app.UseFacebookAuthentication();
+            app.UseMicrosoftAccountAuthentication();
         }
     }
 }
