@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace RepairPartsCatalog.Domain.Entities.Common
+﻿namespace RepairPartsCatalog.Entities.Catalog.Common
 {
     /// <summary>
     /// Base class for all entities.
@@ -10,7 +8,6 @@ namespace RepairPartsCatalog.Domain.Entities.Common
         /// <summary>
         /// Primary key for all DB entities.
         /// </summary>
-        [Key]
         public long Id { get; set; }
     }
 }

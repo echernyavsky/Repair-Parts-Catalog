@@ -1,12 +1,18 @@
 {
     "Data": {
-        "DefaultConnection": { 
-            "ConnectionString": "Server=(localdb)\\mssqllocaldb;Database=aspnet5-RepairPartsCatalog.Web-e0c7dc3d-35fc-4d63-9d34-6a6a9f87e9a5;Trusted_Connection=True;MultipleActiveResultSets=true"
+        "DefaultConnection": {
+            "ConnectionString": "Data Source=(LocalDb)\\v11.0;Initial Catalog=RepairPartsCatalog.Auth;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"
+        },
+        "CatalogConnection": {
+            "ConntectionString": "Data Source=(LocalDb)\\v11.0;Initial Catalog=RepairPartsCatalog.Catalog;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"
         }
     },
     "EntityFramework": {
         "ApplicationDbContext": {
             "ConnectionString": "Data:DefaultConnection:ConnectionString"
+        },
+        "RepairPartsContext": {
+            "ConnectionString": "Data:CatalogConnection:ConntectionString"
         }
     }
 }

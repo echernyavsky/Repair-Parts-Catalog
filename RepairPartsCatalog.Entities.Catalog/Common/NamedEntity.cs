@@ -1,4 +1,4 @@
-﻿namespace RepairPartsCatalog.Domain.Entities.Common
+﻿namespace RepairPartsCatalog.Entities.Catalog.Common
 {
     /// <summary>
     /// Base class for entities with Name property

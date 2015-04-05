@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using RepairPartsCatalog.Domain.Entities.Common;
+using RepairPartsCatalog.Entities.Catalog.Common;
 
-namespace RepairPartsCatalog.Domain.Entities
+namespace RepairPartsCatalog.Entities.Catalog
 {
     /// <summary>
     /// Car model entity.

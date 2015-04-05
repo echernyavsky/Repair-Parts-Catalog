@@ -11,10 +11,10 @@
         "Microsoft.AspNet.Diagnostics.Entity": "7.0.0-beta3",
         "Microsoft.AspNet.Identity.EntityFramework": "3.0.0-beta3",
         "Microsoft.AspNet.Security.Facebook": "1.0.0-beta3",
-		"Microsoft.AspNet.Security.Google": "1.0.0-beta3",
-		"Microsoft.AspNet.Security.MicrosoftAccount": "1.0.0-beta3",
-		"Microsoft.AspNet.Security.OpenIdConnect": "1.0.0-beta3",
-		"Microsoft.AspNet.Security.Twitter": "1.0.0-beta3",
+        "Microsoft.AspNet.Security.Google": "1.0.0-beta3",
+        "Microsoft.AspNet.Security.MicrosoftAccount": "1.0.0-beta3",
+        "Microsoft.AspNet.Security.OpenIdConnect": "1.0.0-beta3",
+        "Microsoft.AspNet.Security.Twitter": "1.0.0-beta3",
         "Microsoft.AspNet.Security.Cookies": "1.0.0-beta3",
         "Microsoft.AspNet.Server.IIS": "1.0.0-beta3",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta3",
@@ -23,17 +23,27 @@
         "Microsoft.Framework.CodeGenerators.Mvc": "1.0.0-beta3",
         "Microsoft.Framework.Logging": "1.0.0-beta3",
         "Microsoft.Framework.Logging.Console": "1.0.0-beta3",
-        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3"
+        "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
+        "EntityFramework.Relational": "7.0.0.0-beta3",
+        "RepairPartsCatalog.Domain.Data.Catalog": "1.0.0-*"
+            
     },
     "commands": {
         /* Change the port number when you are self hosting this application */
         "web": "Microsoft.AspNet.Hosting --server Microsoft.AspNet.Server.WebListener --server.urls http://localhost:5000",
         "gen": "Microsoft.Framework.CodeGeneration",
-        "ef":  "EntityFramework.Commands"
+        "ef": "EntityFramework.Commands"
     },
     "frameworks": {
-        "aspnet50": { },
-        "aspnetcore50": { }
+        "aspnet50": {
+            "dependencies": {
+            }
+        },
+        "aspnetcore50": {
+            "dependencies": {
+                "System.Runtime": "4.0.20-beta-22523"
+            }
+        }
     },
     "exclude": [
         "wwwroot",

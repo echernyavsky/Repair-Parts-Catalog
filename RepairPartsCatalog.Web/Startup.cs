@@ -12,6 +12,8 @@ using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
+using RepairPartsCatalog.Domain.Contracts;
+using RepairPartsCatalog.Domain.Data.Catalog;
 using RepairPartsCatalog.Web.Models;
 
 namespace RepairPartsCatalog.Web
@@ -34,12 +36,13 @@ namespace RepairPartsCatalog.Web
             // Add EF services to the services container.
             services.AddEntityFramework(Configuration)
                 .AddSqlServer()
-                .AddDbContext<ApplicationDbContext>();
+                .AddDbContext<ApplicationDbContext>()
+                .AddDbContext<RepairPartsContext>();
 
             // Add Identity services to the services container.
             services.AddIdentity<ApplicationUser, IdentityRole>(Configuration)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            
             // Add MVC services to the services container.
             services.AddMvc();
 
@@ -48,7 +51,7 @@ namespace RepairPartsCatalog.Web
             // Uncomment the following line to add Web API servcies which makes it easier to port Web API 2 controllers.
             // You need to add Microsoft.AspNet.Mvc.WebApiCompatShim package to project.json
             // services.AddWebApiConventions();
-
+            services.AddScoped<ICatalogUoW, CatalogUow>();
         }
 
         private void ConfigureSocialNetworksServices(IServiceCollection services)
