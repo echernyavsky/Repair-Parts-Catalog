@@ -17,7 +17,7 @@ namespace RepairPartsCatalog.Domain.Contracts
 
         IRepository<CarModification> CarModifications { get; }
 
-        IRepository<CarType> CarType { get; }
+        IRepository<CarType> CarTypes { get; }
 
         IRepository<CarVinCode> CarVinCode { get; }
 

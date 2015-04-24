@@ -1,0 +1,9 @@
+﻿@{
+    ViewBag.Title = "Uploading Excel Data";
+}
+
+
+<form action="@Url.Action("UploadExcelFile", "Upload")" method="POST" enctype="multipart/form-data">
+    <input type="file" id="file" name="file" />
+    <input type="submit" value="Upload" />
+</form>

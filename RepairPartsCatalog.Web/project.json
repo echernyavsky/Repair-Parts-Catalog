@@ -1,4 +1,4 @@
-﻿{
+{
     /* Click to learn more about project.json  http://go.microsoft.com/fwlink/?LinkID=517074 */
     "webroot": "wwwroot",
     "version": "1.0.0-*",
@@ -25,8 +25,12 @@
         "Microsoft.Framework.Logging.Console": "1.0.0-beta3",
         "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta3",
         "EntityFramework.Relational": "7.0.0.0-beta3",
-        "RepairPartsCatalog.Domain.Data.Catalog": "1.0.0-*"
-            
+        "RepairPartsCatalog.Domain.Data.Catalog": "1.0.0-*",
+        "RepairPartsCatalog.Business.Contracts": "1.0.0-*",
+        "RepairPartsCatalog.Business.Services": "1.0.0-*",
+        "RepairPartsCatalog.Business.ViewModels": "1.0.0-*",
+        //"AutoMapper": "3.3.1.0"
+
     },
     "commands": {
         /* Change the port number when you are self hosting this application */

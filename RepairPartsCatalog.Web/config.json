@@ -1,10 +1,10 @@
 {
     "Data": {
         "DefaultConnection": {
-            "ConnectionString": "Data Source=(LocalDb)\\v11.0;Initial Catalog=RepairPartsCatalog.Auth;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"
+            "ConnectionString": "Data Source=(LocalDb)\\v11.0;Initial Catalog=RepairPartsCatalog.Auth;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;MultipleActiveResultSets=True"
         },
         "CatalogConnection": {
-            "ConntectionString": "Data Source=(LocalDb)\\v11.0;Initial Catalog=RepairPartsCatalog.Catalog;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False"
+            "ConntectionString": "Data Source=(LocalDb)\\v11.0;Initial Catalog=RepairPartsCatalog.Catalog;Integrated Security=True;Connect Timeout=15;Encrypt=False;TrustServerCertificate=False;MultipleActiveResultSets=True"
         }
     },
     "EntityFramework": {

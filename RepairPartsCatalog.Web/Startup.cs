@@ -12,9 +12,13 @@ using Microsoft.Framework.ConfigurationModel;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
 using Microsoft.Framework.Logging.Console;
+using RepairPartsCatalog.Business.Contracts;
+using RepairPartsCatalog.Business.Services.Integration;
 using RepairPartsCatalog.Domain.Contracts;
 using RepairPartsCatalog.Domain.Data.Catalog;
 using RepairPartsCatalog.Web.Models;
+//using AutoMapper;
+//using RepairPartsCatalog.Business.Services.Configurations;
 
 namespace RepairPartsCatalog.Web
 {
@@ -28,7 +32,7 @@ namespace RepairPartsCatalog.Web
                 .AddEnvironmentVariables();
         }
 
-        public IConfiguration Configuration { get; set; }
+        public Microsoft.Framework.ConfigurationModel.IConfiguration Configuration { get; set; }
 
         // This method gets called by the runtime.
         public void ConfigureServices(IServiceCollection services)
@@ -46,12 +50,20 @@ namespace RepairPartsCatalog.Web
             // Add MVC services to the services container.
             services.AddMvc();
 
+            //Mapper.Initialize(cfg =>
+            //{
+            //    cfg.AddProfile<AutomapperConfiguration>();
+            //});
+
             ConfigureSocialNetworksServices(services);
 
             // Uncomment the following line to add Web API servcies which makes it easier to port Web API 2 controllers.
             // You need to add Microsoft.AspNet.Mvc.WebApiCompatShim package to project.json
             // services.AddWebApiConventions();
             services.AddScoped<ICatalogUoW, CatalogUow>();
+
+            services.AddScoped<IExcelIntegrationService, ExcelIntegrationService>();
+            
         }
 
         private void ConfigureSocialNetworksServices(IServiceCollection services)

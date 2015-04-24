@@ -29,7 +29,7 @@ namespace RepairPartsCatalog.Domain.Data.Catalog
 
         IRepository<CarModification> ICatalogUoW.CarModifications => carModifications ?? (carModifications = new BaseRepository<CarModification>(dbContext));
 
-        IRepository<CarType> ICatalogUoW.CarType => carTypes ?? (carTypes = new BaseRepository<CarType>(dbContext));
+        IRepository<CarType> ICatalogUoW.CarTypes => carTypes ?? (carTypes = new BaseRepository<CarType>(dbContext));
 
         IRepository<CarVinCode> ICatalogUoW.CarVinCode => carVinCodes ?? (carVinCodes = new BaseRepository<CarVinCode>(dbContext));
 

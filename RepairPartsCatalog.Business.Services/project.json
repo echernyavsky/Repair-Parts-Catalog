@@ -1,0 +1,23 @@
+{
+    "version": "1.0.0-*",
+    "dependencies": {
+        "RepairPartsCatalog.Business.Contracts": "1.0.0-*",
+        "RepairPartsCatalog.Entities.Catalog": "1.0.0-*",
+        "RepairPartsCatalog.Domain.Contracts": "1.0.0-*",
+        "RepairPartsCatalog.Business.ViewModels": "1.0.0-*",
+        "ExcelDataReader": "2.1.2.3",
+        "AutoMapper": "3.3.1.0"
+    },
+
+    "frameworks": {
+        "aspnet50": {
+            "dependencies": {
+            }
+        },
+        "aspnetcore50": {
+            "dependencies": {
+                "System.Runtime": "4.0.20-beta-22523"
+            }
+        }
+    }
+}

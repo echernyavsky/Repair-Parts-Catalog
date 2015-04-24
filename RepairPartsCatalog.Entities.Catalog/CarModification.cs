@@ -13,6 +13,18 @@ namespace RepairPartsCatalog.Entities.Catalog
         /// </summary>
         public long CarModelId { get; set; }
 
+        public string Engine { get; set; }
+
+        public string EngineType { get; set; }
+
+        public int EnginePower { get; set; }
+
+        public int EngineHorsePower { get; set; }
+
+        public FuelType EngineFuelType { get; set; }
+
+        public int Year { get; set; }
+
         /// <summary>
         /// Navigation property to Car Model.
         /// </summary>

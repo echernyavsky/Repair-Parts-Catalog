@@ -37,8 +37,14 @@ namespace RepairPartsCatalog.Domain.Data.Catalog.Migrations
                 builder.Entity("RepairPartsCatalog.Entities.Catalog.CarModification", b =>
                     {
                         b.Property<long>("CarModelId");
+                        b.Property<string>("Engine");
+                        b.Property<int>("EngineFuelType");
+                        b.Property<int>("EngineHorsePower");
+                        b.Property<int>("EnginePower");
+                        b.Property<string>("EngineType");
                         b.Property<long>("Id")
                             .GenerateValueOnAdd();
+                        b.Property<int>("Year");
                         b.Key("Id");
                     });
                 
