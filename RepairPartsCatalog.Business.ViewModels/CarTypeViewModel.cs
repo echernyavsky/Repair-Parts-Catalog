@@ -2,12 +2,12 @@
 
 namespace RepairPartsCatalog.Business.ViewModels
 {
-    public class CountryViewModel
+    public class CarTypeViewModel
     {
         public long Id { get; set; }
 
         public string Name { get; set; }
 
-        public string Code { get; set; }
+        public bool IsSelected { get; set; }
     }
 }

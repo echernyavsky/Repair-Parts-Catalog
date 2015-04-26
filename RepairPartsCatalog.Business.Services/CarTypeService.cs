@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using RepairPartsCatalog.Business.Contracts;
 using RepairPartsCatalog.Domain.Contracts;
 using RepairPartsCatalog.Entities.Catalog;
+using RepairPartsCatalog.Business.ViewModels;
+using Mapper;
+using System.Linq;
 
 namespace RepairPartsCatalog.Business.Services
 {
@@ -10,10 +13,10 @@ namespace RepairPartsCatalog.Business.Services
     {
         public CarTypeService(ICatalogUoW catalogUow) : base(catalogUow) { }
 
-        IEnumerable<CarType> ICarTypeService.GetAll()
+        IEnumerable<CarTypeViewModel> ICarTypeService.GetAll()
         {
-            var carTypes = CatalogUow.CarTypes.All();
-            return carTypes;
+            var carTypes = CatalogUow.CarTypes.All().ToList();
+            return EntityMapper.Map(carTypes);
         }
     }
 }

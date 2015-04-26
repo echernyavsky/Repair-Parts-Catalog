@@ -4,16 +4,12 @@
     {
         public long Id { get; set; }
 
-        /// <summary>
-        /// Object name.
-        /// </summary>
         public string Name { get; set; }
 
-        /// <summary>
-        /// FK to related country.
-        /// </summary>
-        public long CountryId { get; set; }
+        public string CountryName { get; set; }
 
-        public CountryViewModel Country { get; set; }
+        public long CountryId { get; set; }
+        
+        public string ImageUrl { get; set; }
     }
 }

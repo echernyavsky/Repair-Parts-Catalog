@@ -9,10 +9,15 @@ namespace RepairPartsCatalog.Web.Controllers
     public class UploadController : Controller
     {
         private readonly IExcelIntegrationService excelIntegrationService;
+        private readonly ICountryService countryService;
 
-        public UploadController(IExcelIntegrationService excelIntegrationService)
+        public UploadController(
+            IExcelIntegrationService excelIntegrationService,
+            ICountryService countryService
+            )
         {
             this.excelIntegrationService = excelIntegrationService;
+            this.countryService = countryService;
         }
 
 
@@ -33,6 +38,23 @@ namespace RepairPartsCatalog.Web.Controllers
                 {
                     return RedirectToAction("Index", "Home");
                 }
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult UploadCountryList()
+        {
+            return View("Country");
+        }
+
+        [HttpPost]
+        public IActionResult UploadCountryList(IFormFile file)
+        {
+            using (var stream = file.OpenReadStream())
+            {
+                countryService.UploadCsvList(stream);
             }
 
             return RedirectToAction("Index", "Home");

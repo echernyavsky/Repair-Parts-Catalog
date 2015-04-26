@@ -9,7 +9,9 @@
         "hammer.js": "2.0.4",
         "bootstrap-touch-carousel": "0.8.0",
         "knockout": "3.3.0",
-        "bootstrap-material-design": "0.3.0"
+        "bootstrap-material-design": "0.3.0",
+        "knockout-mapping": "2.4.1",
+        "select2": "4.0.0",
     },
     "exportsOverride": {
     "bootstrap": {

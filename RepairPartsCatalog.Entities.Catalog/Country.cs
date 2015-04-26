@@ -7,5 +7,6 @@ namespace RepairPartsCatalog.Entities.Catalog
     /// </summary>
     public class Country : NamedEntity
     {
+        public string Code { get; set; }
     }
 }

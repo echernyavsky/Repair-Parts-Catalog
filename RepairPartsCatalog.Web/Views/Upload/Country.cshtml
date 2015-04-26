@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Upload Country List";
+}
+
+<form action="@Url.Action("UploadCountryList", "Upload")" method="POST" enctype="multipart/form-data">
+    <div class="form-group">
+        <input type="file" id="file" name="file"/>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Upload" class="btn btn-primary" />
+    </div>
+    
+</form>

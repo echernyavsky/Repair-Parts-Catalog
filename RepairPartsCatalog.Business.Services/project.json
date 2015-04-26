@@ -5,8 +5,7 @@
         "RepairPartsCatalog.Entities.Catalog": "1.0.0-*",
         "RepairPartsCatalog.Domain.Contracts": "1.0.0-*",
         "RepairPartsCatalog.Business.ViewModels": "1.0.0-*",
-        "ExcelDataReader": "2.1.2.3",
-        "AutoMapper": "3.3.1.0"
+        "ExcelDataReader": "2.1.2.3"
     },
 
     "frameworks": {

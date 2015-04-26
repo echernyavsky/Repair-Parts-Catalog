@@ -28,8 +28,7 @@
         "RepairPartsCatalog.Domain.Data.Catalog": "1.0.0-*",
         "RepairPartsCatalog.Business.Contracts": "1.0.0-*",
         "RepairPartsCatalog.Business.Services": "1.0.0-*",
-        "RepairPartsCatalog.Business.ViewModels": "1.0.0-*",
-        //"AutoMapper": "3.3.1.0"
+        "RepairPartsCatalog.Business.ViewModels": "1.0.0-*"
 
     },
     "commands": {

@@ -17,8 +17,9 @@ using RepairPartsCatalog.Business.Services.Integration;
 using RepairPartsCatalog.Domain.Contracts;
 using RepairPartsCatalog.Domain.Data.Catalog;
 using RepairPartsCatalog.Web.Models;
-//using AutoMapper;
-//using RepairPartsCatalog.Business.Services.Configurations;
+using RepairPartsCatalog.Business.Services;
+using RepairPartsCatalog.Business.Services.Integration.Csv;
+using RepairPartsCatalog.Entities.Catalog;
 
 namespace RepairPartsCatalog.Web
 {
@@ -49,12 +50,7 @@ namespace RepairPartsCatalog.Web
             
             // Add MVC services to the services container.
             services.AddMvc();
-
-            //Mapper.Initialize(cfg =>
-            //{
-            //    cfg.AddProfile<AutomapperConfiguration>();
-            //});
-
+            
             ConfigureSocialNetworksServices(services);
 
             // Uncomment the following line to add Web API servcies which makes it easier to port Web API 2 controllers.
@@ -63,7 +59,14 @@ namespace RepairPartsCatalog.Web
             services.AddScoped<ICatalogUoW, CatalogUow>();
 
             services.AddScoped<IExcelIntegrationService, ExcelIntegrationService>();
-            
+
+            services.AddScoped<ICountryService, CountryService>();
+
+            services.AddScoped<IBaseCsvReader<Country>, CountryCsvReader>();
+
+            services.AddScoped<ICarBrandService, CarBrandService>();
+
+            services.AddScoped<ICarTypeService, CarTypeService>();
         }
 
         private void ConfigureSocialNetworksServices(IServiceCollection services)
@@ -134,7 +137,7 @@ namespace RepairPartsCatalog.Web
                 routes.MapRoute(
                     name: "default",
                     template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "CarBrand", action = "Index" });
 
                 // Uncomment the following line to add a route for porting Web API 2 controllers.
                 // routes.MapWebApiRoute("DefaultApi", "api/{controller}/{id?}");

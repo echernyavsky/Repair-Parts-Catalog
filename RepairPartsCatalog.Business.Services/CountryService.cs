@@ -1,20 +1,31 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Mapper;
 using RepairPartsCatalog.Business.Contracts;
 using RepairPartsCatalog.Domain.Contracts;
 using RepairPartsCatalog.Entities.Catalog;
+using RepairPartsCatalog.Business.ViewModels;
 
 namespace RepairPartsCatalog.Business.Services
 {
     public class CountryService : BaseService, ICountryService
     {
-        public CountryService(ICatalogUoW catalogUoW) : base(catalogUoW) {}
+        private readonly IBaseCsvReader<Country> countryCsvReader;
 
-        IEnumerable<Country> ICountryService.GetAll()
+        public CountryService(
+            ICatalogUoW catalogUoW,
+            IBaseCsvReader<Country> countryCsvReader
+        ) : base(catalogUoW)
         {
-            var countries = CatalogUow.Countries.All();
-            return countries;
+            this.countryCsvReader = countryCsvReader;
+        }
+
+        IEnumerable<CountryViewModel> ICountryService.GetAll()
+        {
+            var countries = CatalogUow.Countries.All().OrderBy(it => it.Name);
+            return EntityMapper.Map(countries);
         }
 
         Country ICountryService.GetById(long id)
@@ -37,6 +48,33 @@ namespace RepairPartsCatalog.Business.Services
             }
 
             return country;
+        }
+
+        void ICountryService.UploadCsvList(Stream stream)
+        {
+            var countries = countryCsvReader.Read(stream);
+            foreach (var country in countries)
+            {
+                CatalogUow.Countries.InsertOrUpdate(country);
+            }
+
+            CatalogUow.Commit();
+        }
+
+        CountryTableViewModel ICountryService.GetCountryTable()
+        {
+            var countries = ((ICountryService)(this)).GetAll();
+            var table = new CountryTableViewModel()
+            {
+                Countries = countries.Select(it => new CountryViewModel()
+                {
+                    Id = it.Id,
+                    Name = it.Name,
+                    Code = it.Code
+                })
+            };
+
+            return table;
         }
     }
 }

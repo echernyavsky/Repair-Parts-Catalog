@@ -1,39 +1,15 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿.btn-primary {
+    background-color: #3f51b5;
 }
 
-
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.nav-pills > li.active > a {
+    background-color: #3f51b5;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
-
-
-/* CAROUSEL
--------------------------------------------------- */
-
-.carousel-caption {
-    z-index: 10 !important;
-}
-
-    .carousel-caption p {
-        font-size: 20px;
-        line-height: 1.4;
+    .nav-pills > li.active > a:hover {
+        background-color: #495bc0;
     }
 
-@media (min-width: 768px) {
-
-    .carousel-caption {
-        z-index: 10 !important;
+    .nav-pills > li.active > a:active {
+        background-color: #5062c2;
     }
-}

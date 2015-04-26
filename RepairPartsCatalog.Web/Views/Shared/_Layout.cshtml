@@ -3,58 +3,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Repair Parts Catalog</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-material-design/material.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-material-design/ripples.css" />
     <link rel="stylesheet" href="~/lib/bootstrap-touch-carousel/css/bootstrap-touch-carousel.css" />
+    <link rel="stylesheet" href="~/lib/select2/select2.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
-    <div class="navbar navbar-inverse">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="javascript:void(0)">Brand</a>
-        </div>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="javascript:void(0)">Active</a></li>
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                    <a href="http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li class="dropdown-header">Dropdown header</li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                        <li><a href="javascript:void(0)">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <form class="navbar-form navbar-left">
-                <input type="text" class="form-control col-lg-8" placeholder="Search">
-            </form>
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="javascript:void(0)">Link</a></li>
-                <li class="dropdown">
-                    <a href="http://fezvrasta.github.io/bootstrap-material-design/bootstrap-elements.html" data-target="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="javascript:void(0)">Action</a></li>
-                        <li><a href="javascript:void(0)">Another action</a></li>
-                        <li><a href="javascript:void(0)">Something else here</a></li>
-                        <li class="divider"></li>
-                        <li><a href="javascript:void(0)">Separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-    </div>
+    @Html.Partial("_Navbar")
     <div class="container body-content">
         <div class="col-md-9">
             <div class="panel panel-default">
@@ -66,11 +25,11 @@
         <div class="col-md-3">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    General information
+                    Contacts
                 </div>
 
                 <div class="panel-body">
-                    smth
+                    <p>+375 29 xxx xx xx</p>
                 </div>
             </div>
 
@@ -80,11 +39,16 @@
     <hr />
     <div class="container">
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Repair Parts Catalog</p>
         </footer>
     </div>
 
     <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/js/common/catalog.js"></script>
+    <script src="~/lib/knockout/knockout.js"></script>
+    <script src="~/lib/knockout-mapping/knockout.mapping.js"></script>
+    <script src="~/lib/select2/select2.js"></script>
+    <script src="~/js/knockout/knockout.binding.js"></script>
     <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
     <script src="~/lib/bootstrap-material-design/material.js"></script>
     <script src="~/lib/bootstrap-material-design/ripples.js"></script>
@@ -97,7 +61,6 @@
     </script>
     <script src="~/lib/hammer.js/hammer.js"></script>
     <script src="~/lib/bootstrap-touch-carousel/js/bootstrap-touch-carousel.js"></script>
-    <script src="~/lib/knockout/knockout.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

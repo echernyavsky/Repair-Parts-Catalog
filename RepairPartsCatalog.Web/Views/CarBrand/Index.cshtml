@@ -1,0 +1,56 @@
+﻿@using System.Threading.Tasks
+@using Newtonsoft.Json
+@model RepairPartsCatalog.Business.ViewModels.CarBrandTableViewModel
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<section id="carBrands">
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <button class="btn btn-primary btn-material-indigo" data-bind="click: AddBrand">Add Brand</button>
+        </div>
+    </div>
+    <div class="row" style="margin-bottom: 15px;">
+        <div class="col-md-12">
+            <ul class="nav nav-pills" role="tablist" data-bind="foreach: Types">
+                <li data-bind="css: { active: IsSelected }"><a href="#" data-bind="click: $parent.SelectType, text: Name"></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="row" data-bind="foreach: Brands">
+        <div class="col-md-3">
+            <div class="thumbnail" style="height: 200px;">
+                <div style="min-height: 116px; text-align: center;">
+                    <span style="display: inline-block; height: 116px; vertical-align: middle;"></span>
+                    <img style="max-height: 116px; vertical-align: middle;" data-bind="attr: { src: ImageUrl, title: CountryName }"/>
+                </div>
+                <div class="caption text-center">
+                    <h3 data-bind="text: Name"></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Partial("Modals/AddModal")
+
+@section scripts {
+    <script type="text/javascript">
+        var urls = {
+            getTable: '@Url.Action("GetCarBrandTable", "CarBrand")',
+            createBrand: '@Url.Action("CreateBrand", "CarBrand")',
+        };
+
+        window.urls = urls;
+    </script>
+    <script type="text/javascript" src="~/js/view-models/country/countryViewModel.js"></script>
+    <script type="text/javascript" src="~/js/view-models/carBrands/carBrandViewModel.js"></script>
+    <script type="text/javascript" src="~/js/view-models/carType/carTypeViewModel.js"></script>
+    <script type="text/javascript" src="~/js/view-models/carBrands/carBrandTableViewModel.js"></script>
+    <script type="text/javascript">
+        var viewModel = new CarBrandTableViewModel(@Html.Raw(JsonConvert.SerializeObject(Model)));
+        ko.applyBindings(viewModel, $('#carBrands').get(0));
+    </script>
+}
