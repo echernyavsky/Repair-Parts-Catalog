@@ -25,6 +25,14 @@ namespace RepairPartsCatalog.Entities.Catalog
 
         public int Year { get; set; }
 
+        public int NumberOfCylinders { get; set; }
+
+        public TransmissionType TransmissionType { get; set; }
+
+        public DriveSystem DriveSystem { get; set; }
+
+        public int Weight { get; set; }
+
         /// <summary>
         /// Navigation property to Car Model.
         /// </summary>

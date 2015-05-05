@@ -27,3 +27,5 @@
 /// <reference path="js/common/catalog.js" />
 /// <reference path="js/knockout/knockout.binding.js" />
 /// <reference path="lib/select2/select2.js" />
+/// <reference path="js/view-models/carmodel/carmodeltableviewmodel.js" />
+/// <reference path="js/view-models/carmodel/carmodelviewmodel.js" />

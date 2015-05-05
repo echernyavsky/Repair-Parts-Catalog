@@ -8,16 +8,19 @@ namespace RepairPartsCatalog.Web.Controllers
 {
     public class UploadController : Controller
     {
-        private readonly IExcelIntegrationService excelIntegrationService;
+        private readonly IExcelIntegrationService _excelIntegrationService;
         private readonly ICountryService countryService;
+        private readonly ICsvCarIntegrationService carIntegrationService;
 
         public UploadController(
-            IExcelIntegrationService excelIntegrationService,
-            ICountryService countryService
+            IExcelIntegrationService _excelIntegrationService,
+            ICountryService countryService,
+            ICsvCarIntegrationService carIntegrationService
             )
         {
-            this.excelIntegrationService = excelIntegrationService;
+            this._excelIntegrationService = _excelIntegrationService;
             this.countryService = countryService;
+            this.carIntegrationService = carIntegrationService;
         }
 
 
@@ -32,7 +35,7 @@ namespace RepairPartsCatalog.Web.Controllers
         {
             using (var stream = file.OpenReadStream())
             {
-                var result = excelIntegrationService.LoadDataFromFile(stream);
+                var result = _excelIntegrationService.LoadDataFromFile(stream);
 
                 if (result)
                 {
@@ -55,6 +58,23 @@ namespace RepairPartsCatalog.Web.Controllers
             using (var stream = file.OpenReadStream())
             {
                 countryService.UploadCsvList(stream);
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public IActionResult UploadVehicles()
+        {
+            return View("Vehicles");
+        }
+
+        [HttpPost]
+        public IActionResult UploadVehicles(IFormFile file)
+        {
+            using (var stream = file.OpenReadStream())
+            {
+                carIntegrationService.LoadDataFromFile(stream);
             }
 
             return RedirectToAction("Index", "Home");

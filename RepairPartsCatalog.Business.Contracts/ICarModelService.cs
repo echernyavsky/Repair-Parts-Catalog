@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using RepairPartsCatalog.Business.ViewModels;
 using RepairPartsCatalog.Entities.Catalog;
 
 namespace RepairPartsCatalog.Business.Contracts
@@ -10,6 +11,8 @@ namespace RepairPartsCatalog.Business.Contracts
 
         CarModel GetById(long id);
 
-        void Create(CarModel carModel);
+        CarModelViewModel Create(CarModelViewModel carModel);
+
+        CarModelTableViewModel GetTable(long? carBrandId);
     }
 }

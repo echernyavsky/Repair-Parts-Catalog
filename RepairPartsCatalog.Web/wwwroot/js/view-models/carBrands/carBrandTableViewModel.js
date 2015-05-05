@@ -45,4 +45,9 @@
             self.Brands.push(brand);
         });
     };
+
+    self.goToModels = function (brand) {
+        var url = decodeURIComponent(window.urls.getModelsTable).replace('###', brand.Id());
+        window.location.href = url;
+    };
 }

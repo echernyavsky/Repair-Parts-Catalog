@@ -9,6 +9,8 @@ namespace RepairPartsCatalog.Entities.Catalog
 
         Diesel = 1,
 
+        Electricity = 2,
+
         Unknown = 255
     }
 }

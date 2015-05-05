@@ -118,7 +118,6 @@ ko.bindingHandlers["select2"] = {
         });
     },
     update: function (element, valueAccessor, allBindingsAccessor) {
-        //trying various methods to register in interest in updating this, but these work with the options observable, not the individual value observables
         //var allBindings = allBindingsAccessor();
         //if (allBindings.options) { allBindings.options(); }
         //if (allBindings.value) { allBindings.value(); }

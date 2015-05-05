@@ -20,6 +20,7 @@ using RepairPartsCatalog.Web.Models;
 using RepairPartsCatalog.Business.Services;
 using RepairPartsCatalog.Business.Services.Integration.Csv;
 using RepairPartsCatalog.Entities.Catalog;
+using RepairPartsCatalog.Business.ViewModels.Helpers;
 
 namespace RepairPartsCatalog.Web
 {
@@ -67,6 +68,14 @@ namespace RepairPartsCatalog.Web
             services.AddScoped<ICarBrandService, CarBrandService>();
 
             services.AddScoped<ICarTypeService, CarTypeService>();
+
+            services.AddScoped<ICarModelService, CarModelService>();
+
+            services.AddScoped<ICarModificationService, CarModificationService>();
+
+            services.AddScoped<ICsvCarIntegrationService, CsvCarIntegrationService>();
+
+            services.AddScoped<IBaseCsvReader<CsvVehicleViewModel>, CarCsvReader>();
         }
 
         private void ConfigureSocialNetworksServices(IServiceCollection services)

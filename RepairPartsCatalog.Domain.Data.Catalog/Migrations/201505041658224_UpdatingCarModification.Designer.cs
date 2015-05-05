@@ -7,9 +7,25 @@ using System;
 namespace RepairPartsCatalog.Domain.Data.Catalog.Migrations
 {
     [ContextType(typeof(RepairPartsCatalog.Domain.Data.Catalog.RepairPartsContext))]
-    public class RepairPartsContextModelSnapshot : ModelSnapshot
+    public partial class UpdatingCarModification : IMigrationMetadata
     {
-        public override IModel Model
+        string IMigrationMetadata.MigrationId
+        {
+            get
+            {
+                return "201505041658224_UpdatingCarModification";
+            }
+        }
+        
+        string IMigrationMetadata.ProductVersion
+        {
+            get
+            {
+                return "7.0.0-beta3-12166";
+            }
+        }
+        
+        IModel IMigrationMetadata.TargetModel
         {
             get
             {

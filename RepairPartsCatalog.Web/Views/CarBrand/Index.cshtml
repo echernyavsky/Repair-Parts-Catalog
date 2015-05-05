@@ -27,7 +27,7 @@
                     <img style="max-height: 116px; vertical-align: middle;" data-bind="attr: { src: ImageUrl, title: CountryName }"/>
                 </div>
                 <div class="caption text-center">
-                    <h3 data-bind="text: Name"></h3>
+                    <h3><a href="#" data-bind="text: Name, click: $root.goToModels"></a></h3>
                 </div>
             </div>
         </div>
@@ -41,6 +41,7 @@
         var urls = {
             getTable: '@Url.Action("GetCarBrandTable", "CarBrand")',
             createBrand: '@Url.Action("CreateBrand", "CarBrand")',
+            getModelsTable: '@Url.Action("Index", "CarModel", new { brandId = "###" })',
         };
 
         window.urls = urls;
